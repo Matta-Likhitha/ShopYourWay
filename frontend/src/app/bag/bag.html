@@ -1,0 +1,32 @@
+<div class="bag-container">
+
+  @if ((bagItems$ | async)?.length === 0) {
+    <div class="empty-bag">
+      <p>Your bag is empty.</p>
+      <button (click)="home()">Continue Shopping</button>
+    </div>
+  }
+
+  @if ((bagItems$ | async)?.length ?? 0 > 0) {
+    <div>
+      @for (item of (bagItems$ | async) ?? []; track item.id) {
+        <div class="bag-item">
+          <img [src]="item.product.image_url" [alt]="item.product.name" />
+          <div>
+            <p class="item-brand">{{ item.product.brand }}</p>
+            <p class="item-name">{{ item.product.name }}</p>
+            <p class="item-price">{{ item.product.price | currency }}</p>
+            <p>Quantity: {{ item.quantity }}</p>
+          </div>
+        </div>
+      }
+
+      <!-- Action buttons -->
+      <div class="bag-actions">
+        <button (click)="clearBag()">Clear Bag</button>
+        <button (click)="placeOrder()">Place Order</button>
+      </div>
+    </div>
+  }
+
+</div>

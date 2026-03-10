@@ -1,0 +1,39 @@
+<header class="mands-header">
+  <div class="logo">
+   
+  </div>
+  <div class="header-container">
+    <div class="title">
+      Welcome To Your Shopping Dashboard 
+    </div>
+  </div>
+  <div class="header-tools" >
+    <div class="nav-item" >
+        <span class="icon">👤</span>
+       <span (click)="account()">Account</span>  
+    </div>
+    <div class="nav-item">
+      <span class="line-1" (click)="orders()">Orders & returns</span>
+    </div>
+    <div class="cart" >
+      <span class="material-icons">shopping_cart </span>
+      <span class="text-bag" (click)="bag()">Bag</span>
+    </div>
+    <div class="nav-item language-container" >
+         <span class="fi fi-gb" ></span><span class="en-text">EN</span>
+      <span class="material-icons arrow-icon">arrow_drop_down</span>
+    </div>
+  </div>
+</header>
+<nav class="sub-nav">
+  <div class="nav-links">
+    <span class="menu-all" (click)="home()">☰ Home</span>
+    <span>Today's Deals</span>
+    <span>Offers & Rewards</span>
+    <span>Wish List</span>
+    <span>Customer Service</span>
+    <span>Gift Cards</span>
+    <span>Help</span>
+  </div>
+</nav>
+<router-outlet></router-outlet>

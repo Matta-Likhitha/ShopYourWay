@@ -1,0 +1,68 @@
+<!-- Navigation -->
+<div class="nav-container">
+  <span class="nav-box active">Digital Orders</span>
+  <span class="nav-box">Buy again</span>
+  <span class="nav-box">Payments</span>
+  <span class="nav-box">Returns & Refunds</span>
+</div>
+
+<div>
+  <h1 style="margin-left: 20px;">View Your Orders</h1>
+
+  <div class="dashboard-header">
+    <div class="actions">
+      <div class="filter-container">
+        <label for="dateSort">Sort by Date: </label>
+        <select id="dateSort" (change)="onSortChange($event)" class="sort-dropdown">
+          <option value="" disabled selected>Select Order</option>
+          <option value="asc">Last 30 days</option>
+          <option value="desc">Last 3 months</option>
+          <option value="2026">2026</option>
+          <option value="2025">2025</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <div class="table-wrapper">
+    <table class="user-table">
+      <thead>
+        <tr>
+          <th>Order Id</th>
+          <th>Order Status</th>
+          <th>Delivered</th>
+          <th>Total Price</th>
+          <th>Items</th>
+          <th>Ordered Date</th>
+        </tr>
+      </thead>
+      <tbody class="results">
+
+        @if ((orderService.orders$ | async)?.length === 0) {
+          <tr>
+            <td colspan="6" style="text-align:center; padding:20px;">
+              No orders found.
+            </td>
+          </tr>
+        }
+
+        @for (order of (orderService.orders$ | async) ?? []; track order.id) {
+          <tr>
+            <td>{{ order.id }}</td>
+            <td>{{ order.status }}</td>
+            <td>{{ order.delivered ? 'Yes' : 'No' }}</td>
+            <td>{{ order.total_price | currency }}</td>
+            <td>
+              <!-- Each order has multiple items now -->
+              @for (item of order.items; track item.product.id) {
+                <div>{{ item.product.name }} x{{ item.quantity }}</div>
+              }
+            </td>
+            <td><strong>{{ order.created_at | date:'mediumDate' }}</strong></td>
+          </tr>
+        }
+
+      </tbody>
+    </table>
+  </div>
+</div>

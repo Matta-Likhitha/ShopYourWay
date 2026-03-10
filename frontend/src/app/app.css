@@ -1,0 +1,193 @@
+/* ── 1. Header — simple fade in on load */
+@keyframes headerFadeIn {
+  0%   { opacity: 0; transform: translateY(-20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.mands-header {
+  background: linear-gradient(to right, #93d3e1, #f0f3f4);
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  height: 80px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  animation: headerFadeIn 0.5s ease forwards;
+}
+
+/* ── 2. Title — simple fade in */
+@keyframes fadeIn {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.title {
+  font-size: 30px;
+  font-weight: 600;
+  color: #111827;
+  text-align: center;
+  display: flex;
+  width: 700px;
+  animation: fadeIn 0.8s ease forwards;
+}
+
+/* ── 3. Nav boxes — slide up one by one */
+@keyframes slideUp {
+  0%   { opacity: 0; transform: translateY(15px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.nav-box {
+  padding: 15px 25px;
+  min-width: 140px;
+  border-radius: 10px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: #4b5563;
+  text-align: center;
+  cursor: pointer;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05);
+  opacity: 0;
+  animation: slideUp 0.4s ease forwards;
+  transition: all 0.25s ease;
+}
+
+.nav-box:nth-child(1) { animation-delay: 0.1s; }
+.nav-box:nth-child(2) { animation-delay: 0.2s; }
+.nav-box:nth-child(3) { animation-delay: 0.3s; }
+.nav-box:nth-child(4) { animation-delay: 0.4s; }
+
+/* Simple clean hover */
+.nav-box:hover {
+  background: #93d3e1;
+  color: #111827;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(147, 211, 225, 0.4);
+}
+
+.nav-box.active {
+  border-bottom: 3px solid #111827;
+  color: #0066ff;
+  font-weight: 600;
+}
+
+/* ── 4. Sub nav — slides down on load */
+@keyframes slideDown {
+  0%   { opacity: 0; transform: translateY(-10px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.sub-nav {
+  background-color: #232f3e;
+  color: white;
+  padding: 8px 20px;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  animation: slideDown 0.4s ease forwards;
+}
+
+/* ── 5. Nav links — clean underline on hover */
+.nav-links {
+  display: flex;
+  gap: 25px;
+  align-items: center;
+}
+
+.nav-links span {
+  cursor: pointer;
+  padding: 5px 8px;
+  position: relative;
+  border: 1px solid transparent;
+  transition: color 0.2s ease;
+}
+
+.nav-links span::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #93d3e1;
+  transition: width 0.25s ease;
+}
+
+.nav-links span:hover {
+  color: #93d3e1;
+  border: 1px solid transparent;
+}
+
+.nav-links span:hover::after {
+  width: 100%; 
+}
+
+/* ── 6. Menu items — highlight on hover */
+.menu-item {
+  cursor: pointer;
+  padding: 5px 8px;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  transition: all 0.2s ease;
+}
+
+.menu-item:hover {
+  border: 1px solid white;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.menu-item.active {
+  font-weight: bold;
+}
+
+/* ── 7. Header tools — fade in */
+.header-tools {
+  display: flex;
+  gap: 17px;
+  margin-left: 360px;
+  cursor: pointer;
+  align-items: center;
+  animation: fadeIn 0.6s ease forwards;
+}
+
+/* ── 8. Nav item — lift on hover */
+.nav-item {
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.nav-item:hover {
+  transform: translateY(-2px);
+  color: #c55029;
+}
+
+/* ── 9. Cart icon — gentle shake on hover */
+@keyframes gentleShake {
+  0%, 100% { transform: rotate(0deg); }
+  25%       { transform: rotate(-8deg); }
+  75%       { transform: rotate(8deg); }
+}
+
+.cart:hover .material-icons {
+  animation: gentleShake 0.4s ease;
+  color: #d88139;
+}
+
+/* ── 10. Page content — smooth fade in */
+@keyframes contentFadeIn {
+  0%   { opacity: 0; transform: translateY(10px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.nav-container {
+  display: flex;
+  gap: 15px;
+  padding: 20px;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  animation: contentFadeIn 0.5s ease forwards;
+}

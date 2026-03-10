@@ -1,0 +1,109 @@
+
+.page-item{
+  justify-items: left;
+  font-size: 30px;
+    color: rgb(28, 75, 85);
+    margin-top: 80px;
+    margin-left: 40px;
+}
+.hero-container {
+  display: flex;
+  height: 900px;
+  position: relative; /* Necessary for the bottom overlay */
+  font-family: 'Inter', sans-serif;
+  margin-top: 30px;
+}
+
+/* Left Brown Section */
+.hero-text-section {
+  flex: 1;
+  background-color: #dcd7ba; /* Dark brown from image */
+  color: white;
+  display: flex;
+  align-items: left;
+  justify-content: left;
+  padding: 0 50px;
+}
+
+.content-wrapper h1 {
+  font-size: 48px;
+  margin-top: 150px;
+  color: black;
+}
+
+.content-wrapper p {
+  font-size: 20px;
+  margin-bottom: 30px;
+  opacity: 0.9;
+  color: black;
+}
+
+.new-arrivals-btn {
+  background: white;
+  color: black;
+  border: none;
+  padding: 12px 25px;
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Right Image Section */
+.hero-image-section {
+  flex: 1.5; /* Makes the image side wider than the text side */
+  background-image: url('https://assets.digitalcontent.marksandspencer.app/images/w_2560,q_auto,f_auto/SD_01_T38_6516_GL_X_EC_0/Cotton-Blend-Lace-Detail-Cropped-Knitted-Vest');
+  background-size: cover;
+}
+
+/* Bottom 3-Box Overlay */
+.category-overlay {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  position: absolute;
+  bottom: 0;
+  left: 3%; /* Starts slightly into the brown area */
+  gap: 10px;
+  margin: 20px auto;
+  width:auto;
+}
+
+.category-item {
+  background: white;
+  padding: 5px;
+  width: 150px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  cursor: pointer;
+}
+
+.category-item img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+  cursor: pointer;
+}
+.bottom-row {
+  width: 150px;        /* Keeps it the same size as others */
+  /* Centers it in that bottom row */
+}
+.bottom-row:nth-child{
+  grid-column: 1 / span 1;
+  margin-left: 50%;
+}
+.category-item span {
+  display: block;
+  padding: 10px 0;
+  font-size: 14px;
+  font-weight: 500;
+  border-top: 1px solid #eee;
+}
+
+
+
+
+
+
+
